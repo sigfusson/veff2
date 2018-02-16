@@ -70,11 +70,11 @@ router.post('/',
       return res.render('form', { errorMessages });
     }
     insert(name, email, ssn, num);
-    return res.redirect('/success');
+    return res.redirect('/skraning');
 });
 
-router.get('/success', (req, res) => {
-  res.render('success', { select });
+router.get('/skraning', (req, res) => {
+  res.render('skraning', { select });
 })
 
 module.exports = router;

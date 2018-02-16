@@ -4,32 +4,16 @@ const session = require('express-session');
 const passport = require('passport');
 const { Strategy } = require('passport-local');
 const users = require('./users');
-const { Client } = require('pg');
+//const { Client } = require('pg');
 const xss = require('xss');
 //const connectionString = 'postgres://:@localhost/postgres';
+var parse = require('pg-connection-string').parse;
+var config = parse('postgres://postgres:flokiernr1@localhost:381/postgres')
 
 const router = express.Router();
 
 async function admin(req, res) {
-  var data = [];
-  const client = new Client({
-    host: 'localhost',
-    user: 'postgres',
-    database: 'postgres',
-    password: '',
-  });
   
-  await client.connect();
-  try {
-    const data = await client.query({
-      rowMode: 'array',
-      text: 'SELECT * FROM postgres'
-    });
-  } catch (err) {
-    console.error('Error selecting', err);
-  }
-  await client.end();
-  console.log(res)
   return res.render('admin');
 }
 

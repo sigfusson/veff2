@@ -1,18 +1,23 @@
 extends layout
 
 block content
-  if errorMessages
-    each i in errorMessages
-      p= i
-  form(name='get' method='get' action='/display')
-    table#desc
-      th ID
-      th Dagsetning
-      th Nafn
-      th Kennitala
-      th Netfang
-      th Fjoldi
-  p
-  a(href='../') Log out
-  p
-  a(href='logout')
+ h1   Umhald 
+ br
+ br
+ p
+    if errorMessages
+      each i in errorMessages
+        p= i
+    form(name='get' method='get' action='/display')
+      table#desc
+        th ID
+        th Dagsetning
+        th Nafn
+        th Kennitala
+        th Netfang
+        th Fjoldi
+    br  
+    p
+    a(href='../') Log out
+    p
+    a(href='logout')

@@ -12,10 +12,27 @@ html {
 *::after {
   box-sizing: inherit;
 }
-
+h1{
+  font-family: "Times New Roman", Times, serif;
+}
 body {
   font-family: Georgia, serif;
   font-size: 16px;
   background-color: #eee;
   color: #333;
 }
+input {
+min-width:20px;
+height: 50%;
+top:10%;
+right:20%;
+z-index:20;
+background-color:#CCC;
+border: 2px solid grey;
+}
+button {
+padding: 12px 28px;
+color: black;
+background-color:#CCC;
+}
+

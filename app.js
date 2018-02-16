@@ -28,18 +28,18 @@ app.use(session({
   saveUninitialized: false,
 }));
 
-app.use('/', form);
-app.use('/admin', admin);
+app.use('/', form);               //form
+app.use('/admin', admin);        //admin síða 
 
 function strat(username, password, done) {
   users
-    .findByUsername(username)
+    .findByUsername(username)             //pass usrn
     .then((user) => {
       if (!user) {
         return done(null, false);
       }
 
-      return users.comparePasswords(password, user);
+      return users.comparePasswords(password, user);     //bera saman
     })
     .then(res => done(null, res))
     .catch((err) => {
@@ -47,7 +47,7 @@ function strat(username, password, done) {
     });
 }
 
-passport.use(new Strategy(strat));
+passport.use(new Strategy(strat));                             //code snippet  pass use 
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -71,7 +71,7 @@ app.use((req, res, next) => {
   next();
 });
 
-async function login(req, res) {
+async function login(req, res) {                            //inn res
   const data = {};
   return res.render('/login', { data });
 }
@@ -112,7 +112,7 @@ function errorHandler(err, req, res, next) { // eslint-disable-line
 
 const hostname = '127.0.0.1';
 //const port = 3000;
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;                         // heroku ekki með port
 app.listen(port, () => {
    console.info(`Server running at http://${hostname}:${port}/`);
   });
@@ -122,5 +122,5 @@ app.listen(port, () => {
 
 
 //app.listen(port, hostname, () => {
-//  console.info(`Server running at http://${hostname}:${port}/`);
+//  console.info(`Server running at http://${hostname}:${port}/`);              //gamla ekki heroku 
 //});

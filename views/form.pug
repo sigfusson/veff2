@@ -1,20 +1,34 @@
 extends layout
 
 block content
-  if errorMessages
-    each i in errorMessages
-      p= i
-  form(name='post' method='POST' action='/')
-    p Nafn
-    input(type='text', name='name')
-    p Email
-    input(type='text', name='email')
-    P SSN
-    input(type='text', name='ssn')
-    p Number
-    input(type='text', name='num')
-    p
-    button Senda
+  h1 Skráning:
   p
-  a(href='login') Innskraning
+   .main.container
+    .row
+      .col-md-6.col-md-offset-5
+        br
+        br
+        if errorMessages
+          each i in errorMessages
+            p= i
+        form(name='post' method='POST' action='/')
+          p Nafn      :    
+          input(type='text', name='name')
+          p Email     :   
+          input(type='text', name='email')
+          P Kennitala :
+          input(type='text', name='ssn')
+          p Númer     :
+          input(type='text', name='num')
+          br
+          br
+          p
+          button Skrá !
+        br
+        br
+        br
+        
+        a(class='button' href='login') Innskrá
+  
+  
   
