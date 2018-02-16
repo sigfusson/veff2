@@ -16,7 +16,7 @@ async function admin(req, res) {
     host: 'localhost',
     user: 'postgres',
     database: 'postgres',
-    password: 'flokiernr1',
+    password: '',
   });
   
   await client.connect();
