@@ -11,7 +11,7 @@ const users = require('./users')
 
 const app = express();
 
-//app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 3000)
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -113,6 +113,6 @@ function errorHandler(err, req, res, next) { // eslint-disable-line
 const hostname = '127.0.0.1';
 const port = 3000;
 
-app.listen(port, hostname, () => {
-  console.info(`Server running at http://${hostname}:${port}/`);
-});
+//app.listen(port, hostname, () => {
+//  console.info(`Server running at http://${hostname}:${port}/`);
+//});
